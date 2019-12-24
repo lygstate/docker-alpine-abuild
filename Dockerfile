@@ -1,4 +1,5 @@
 FROM alpine:3.12
+COPY repositories /etc/apk/repositories
 RUN apk --no-cache add alpine-sdk coreutils cmake sudo \
   && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
   && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
@@ -7,6 +8,8 @@ RUN apk --no-cache add alpine-sdk coreutils cmake sudo \
   && mkdir -p /var/cache/apk \
   && ln -s /var/cache/apk /etc/apk/cache
 COPY /abuilder /bin/
+COPY sudo.conf /etc/sudo.conf
+RUN chmod 555 /etc/sudo.conf
 USER builder
 ENTRYPOINT ["abuilder", "-r"]
 WORKDIR /home/builder/package

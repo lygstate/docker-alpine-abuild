@@ -1,0 +1,7 @@
+#/media/sr0/apks
+http://mirrors.sjtug.sjtu.edu.cn/alpine/v3.12/main
+http://mirrors.sjtug.sjtu.edu.cn/alpine/v3.12/community
+@edge http://mirrors.sjtug.sjtu.edu.cn/alpine/edge/main
+@edge http://mirrors.sjtug.sjtu.edu.cn/alpine/edge/community
+@edge http://mirrors.sjtug.sjtu.edu.cn/alpine/edge/testing
+
